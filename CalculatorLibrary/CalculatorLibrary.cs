@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace CalculatorLibrary
 {
-    public class Calculator
+    public class CalculatorMethods
     {
-
         JsonWriter writer;
 
-        public Calculator()
+        public CalculatorMethods()
         {
             StreamWriter logFile = File.CreateText("calculatorlog.json");
             logFile.AutoFlush = true;
@@ -18,12 +18,10 @@ namespace CalculatorLibrary
             writer.WriteStartArray();
         }
 
-        public double DoOperation(int timesUsed, double num1, double num2, string op)
+        public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
             writer.WriteStartObject();
-            writer.WritePropertyName("Time used");
-            writer.WriteValue(timesUsed);
             writer.WritePropertyName("Operand1");
             writer.WriteValue(num1);
             writer.WritePropertyName("Operand2");
@@ -60,6 +58,8 @@ namespace CalculatorLibrary
             writer.WriteValue(result);
             writer.WriteEndObject();
 
+
+
             return result;
         }
 
@@ -69,5 +69,7 @@ namespace CalculatorLibrary
             writer.WriteEndObject();
             writer.Close();
         }
+
+
     }
 }
