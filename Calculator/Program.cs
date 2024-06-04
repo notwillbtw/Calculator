@@ -16,7 +16,7 @@ class Program
         Console.WriteLine("Console Calculator in C#\r");
         Console.WriteLine("------------------------\n");
 
-        CalculatorMethods calculatorMethods = new CalculatorMethods();
+        CalculatorMethods calculator = new CalculatorMethods();
 
         while (!endApp)
         {
@@ -63,7 +63,7 @@ class Program
             }
 
             // Add call to close the JSON writer before return
-            calculatorMethods.Finish();
+            calculator.Finish();
             return;
         }
             
@@ -72,7 +72,7 @@ class Program
     internal static void Calculator(bool hasChosenResultForOperand1 = false, bool hasChosenResultForOperand2 = false)
     {
 
-        CalculatorMethods calculator = new CalculatorMethods();
+        CalculatorMethods calculator2 = new CalculatorMethods();
 
         // Declare variables and set to empty.
         // Use Nullable types (with ?) to match type of System.Console.ReadLine
@@ -122,7 +122,7 @@ class Program
             try
             {
                 
-                result = calculator.DoOperation(cleanNum1, cleanNum2, op);
+                result = calculator2.DoOperation(cleanNum1, cleanNum2, op);
 
                 if (double.IsNaN(result))
                 {
