@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorLibrary", "Calcul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects", "Objects\Objects.csproj", "{F88294EE-E5AD-494D-8D14-4054D018E24E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{0A9668D7-FEB8-4104-95A6-51DF6B8FD0D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{0A9668D7-FEB8-4104-95A6-51DF6B8FD0D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingHandlers", "LoggingHandlers\LoggingHandlers.csproj", "{C189A042-C93B-4D26-879F-6EE09559AA7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0A9668D7-FEB8-4104-95A6-51DF6B8FD0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A9668D7-FEB8-4104-95A6-51DF6B8FD0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A9668D7-FEB8-4104-95A6-51DF6B8FD0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C189A042-C93B-4D26-879F-6EE09559AA7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C189A042-C93B-4D26-879F-6EE09559AA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C189A042-C93B-4D26-879F-6EE09559AA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C189A042-C93B-4D26-879F-6EE09559AA7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

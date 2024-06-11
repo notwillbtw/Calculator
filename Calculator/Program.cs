@@ -3,23 +3,26 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using CalculatorLibrary;
 using Helpers;
+using LoggingHandlers;
 
 class Program
 {
-    
+
     static void Main(string[] args)
     {
+        LoggingHandling loggingHandling = new LoggingHandling();
+
+        loggingHandling.Start();
+
         int timesUsed = 0;
 
         bool endApp = false;
-        // Display title as the C# console calculator app.
-        Console.WriteLine("Console Calculator in C#\r");
-        Console.WriteLine("------------------------\n");
-
-        CalculatorMethods calculator = new CalculatorMethods();
 
         while (!endApp)
         {
+            Console.WriteLine("Console Calculator in C#\r");
+            Console.WriteLine("------------------------\n");
+
             Console.WriteLine("Use calculator (c) or view past uses (v) or quit the program (q)");
             string? choice = Console.ReadLine();
 
@@ -37,6 +40,7 @@ class Program
                 else if (input.ToLower() == "p")
                 {
                     Helpers.UsesListFunctions.UsePastCalculation();
+                    Console.ReadLine();
                 }
                 
                 Console.Clear();
@@ -50,30 +54,31 @@ class Program
                 timesUsed++;
 
                 Calculator();
+
                 Console.Write($"You have used the calculator {timesUsed} time(s). Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
                 if (Console.ReadLine() == "n") endApp = true;
             }
             else if (choice == "q")
             {
-                //quit
+                loggingHandling.Finish();
+                return;
             }
             else
             {
                 Console.WriteLine("invalid input.");
             }
 
-            // Add call to close the JSON writer before return
-            calculator.Finish();
-            return;
+            
+
+            Console.Clear();
+
         }
             
     }
 
     internal static void Calculator(bool hasChosenResultForOperand1 = false, bool hasChosenResultForOperand2 = false)
     {
-
-        CalculatorMethods calculator2 = new CalculatorMethods();
-
+        CalculatorMethods calculator = new CalculatorMethods();
         // Declare variables and set to empty.
         // Use Nullable types (with ?) to match type of System.Console.ReadLine
         string? numInput1 = "";
@@ -122,7 +127,7 @@ class Program
             try
             {
                 
-                result = calculator2.DoOperation(cleanNum1, cleanNum2, op);
+                result = calculator.DoOperation(cleanNum1, cleanNum2, op);
 
                 if (double.IsNaN(result))
                 {
@@ -139,10 +144,7 @@ class Program
 
         UsesListFunctions.AddToHistory(cleanNum1, cleanNum2, result, op);
 
-
         // Wait for the user to respond before closing.
 
-
-        Console.Clear();
     }
 }

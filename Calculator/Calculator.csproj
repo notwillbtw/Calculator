@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CalculatorLibrary\CalculatorLibrary.csproj" />
     <ProjectReference Include="..\Helpers\Helpers.csproj" />
+    <ProjectReference Include="..\LoggingHandlers\LoggingHandlers.csproj" />
   </ItemGroup>
 
 </Project>
