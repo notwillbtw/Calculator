@@ -22,17 +22,14 @@ namespace CalculatorLibrary
                     result = num1 * num2;
                     break;
                 case "d":
-                    // Ask the user to enter a non-zero divisor.
                     if (num2 != 0)
                     {
                         result = num1 / num2;
                     }
                     break;
-                // Return text for an incorrect option entry.
                 default:
                     break;
             }
-
             
             loggingHandling.LogCalculation(op, num1, num2, result);
 

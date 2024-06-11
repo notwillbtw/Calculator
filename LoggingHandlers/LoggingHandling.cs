@@ -29,22 +29,17 @@ namespace LoggingHandlers
             writer.Close();
         }
 
+        
+
         public void LogCalculation(string op, double operand1, double operand2, double result)
         {
-
-            if (writer == null)
-            {
-                throw new InvalidOperationException("Writer is not initialized. Call Start() before logging calculations.");
-            }
-
-
-            writer.WriteStartObject();
+            writer.WriteStartObject(); //throws null error
             writer.WritePropertyName("Operand1");
             writer.WriteValue(operand1);
             writer.WritePropertyName("Operand2");
             writer.WriteValue(operand2);
             writer.WritePropertyName("Operation");
-            // Use a switch statement to do the math.
+
             switch (op)
             {
                 case "a":
