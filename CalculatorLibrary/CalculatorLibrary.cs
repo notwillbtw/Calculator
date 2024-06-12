@@ -6,7 +6,7 @@ namespace CalculatorLibrary
     {
         public double DoOperation(double num1, double num2, string op)
         {
-            LoggingHandling loggingHandling = new LoggingHandling();
+            LoggingHandling loggingHandlers = new LoggingHandling();
 
             double result = double.NaN;
 
@@ -30,8 +30,6 @@ namespace CalculatorLibrary
                 default:
                     break;
             }
-            
-            loggingHandling.LogCalculation(op, num1, num2, result);
 
             return result;
         }

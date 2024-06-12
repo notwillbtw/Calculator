@@ -9,7 +9,7 @@ namespace LoggingHandlers
 {
     public class LoggingHandling
     {
-        JsonWriter writer;
+        internal JsonWriter writer;
 
         public void Start()
         {
