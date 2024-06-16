@@ -1,12 +1,9 @@
-﻿using LoggingHandlers;
-
-namespace CalculatorLibrary
+﻿namespace CalculatorLibrary
 {
     public class CalculatorMethods
     {
         public double DoOperation(double num1, double num2, string op)
         {
-            LoggingHandling loggingHandlers = new LoggingHandling();
 
             double result = double.NaN;
 
@@ -26,6 +23,12 @@ namespace CalculatorLibrary
                     {
                         result = num1 / num2;
                     }
+                    break;
+                case "r":
+                    result = Math.Sqrt(num1);
+                    break;
+                case "p":
+                    result = Math.Pow(num1, num2);
                     break;
                 default:
                     break;

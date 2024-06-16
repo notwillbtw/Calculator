@@ -1,10 +1,4 @@
-﻿using CalculatorLibrary;
-using LoggingHandlers;
-using Objects;
-using System.Collections.Generic;
-using System.Reflection.Metadata;
-using System.Runtime.Intrinsics.X86;
-using System.Text.RegularExpressions;
+﻿using Objects;
 
 namespace Helpers
 {
@@ -13,13 +7,28 @@ namespace Helpers
     {
         public static void PrintUses()
         {
+
+            Console.Clear();
             Console.WriteLine("Past Uses Log");
             Console.WriteLine("------------------------ \n");
-            int i = 0;
-            foreach (var use in Objects.Uses.uses)
+
+
+            if (Objects.Uses.uses.Count() == 0)
             {
-                i++;
-                Console.WriteLine($"{i}. \t{use.Operand1} {use.Op} {use.Operand2} = {use.Result} \n");
+                Console.WriteLine("List empty.");
+            }
+
+            int iteration = 1;
+            for (int i = Objects.Uses.uses.Count() - 1; i >= 0; i--, iteration++)
+            {
+                if (Objects.Uses.uses[i].Op != "Square Root")
+                {
+                    Console.WriteLine($"{iteration}. \t{Objects.Uses.uses[i].Operand1} {Objects.Uses.uses[i].Op} {Objects.Uses.uses[i].Operand2} = {Objects.Uses.uses[i].Result} \n");
+                }
+                else
+                {
+                    Console.WriteLine($"{iteration}. \t{Objects.Uses.uses[i].Operand1} {Objects.Uses.uses[i].Op} = {Objects.Uses.uses[i].Result} \n");
+                }
                
             }
         }
@@ -30,8 +39,6 @@ namespace Helpers
 
             Console.WriteLine("List emptied.");
         }
-
-        
 
         public static void AddToHistory(double operand1, double operand2, double result, string op = "no op applied")
         {
@@ -48,6 +55,12 @@ namespace Helpers
                     break;
                 case "d":
                     op = "/";
+                    break;
+                case "p":
+                    op = "^";
+                    break;
+                case "r":
+                    op = "Square Root";
                     break;
             }
 

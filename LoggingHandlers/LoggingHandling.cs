@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LoggingHandlers
 {
@@ -29,11 +24,9 @@ namespace LoggingHandlers
             writer.Close();
         }
 
-        
-
         public void LogCalculation(string op, double operand1, double operand2, double result)
         {
-            writer.WriteStartObject(); //throws null error
+            writer.WriteStartObject();
             writer.WritePropertyName("Operand1");
             writer.WriteValue(operand1);
             writer.WritePropertyName("Operand2");
@@ -53,6 +46,12 @@ namespace LoggingHandlers
                     break;
                 case "d":
                     writer.WriteValue("Divide");
+                    break;
+                case "r":
+                    writer.WriteValue("Square Root");
+                    break;
+                case "p":
+                    writer.WriteValue("power");
                     break;
                 default:
                     break;
